@@ -1,0 +1,51 @@
+﻿@model AddTemplateToMVC4.Models.product
+@{
+    ViewBag.Title = "add";
+}
+
+@using (Html.BeginForm()) {
+    String path = "/images/" + @Model.pName + ".jpg";
+
+    <fieldset>
+        <legend>Edit Product</legend>
+
+        @Html.HiddenFor(model => model.pName)
+        <div class="editor-label">
+            @Html.Label("Image")
+        </div>
+        <div class="editor-field">            
+            <img src="@path" style="width:100px;height:100px" />
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.type)
+        </div>
+        <div class="editor-field">
+            @Html.TextBoxFor(model => model.type)           
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.productQuantity)
+        </div>
+        <div class="editor-field">
+            @Html.TextBoxFor(model => model.productQuantity)
+           
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.unitPrice)
+        </div>
+        <div class="editor-field">
+            @Html.TextBoxFor(model => model.unitPrice)
+           
+        </div>
+
+        <p>
+            <input type="submit" value="Save" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to Products", "product")
+</div>

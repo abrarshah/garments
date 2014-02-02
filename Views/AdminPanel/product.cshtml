@@ -1,0 +1,35 @@
+﻿@model List<AddTemplateToMVC4.Models.product>
+@{
+    ViewBag.Title = "product";
+}
+
+<div>
+    <div>
+    @Html.ActionLink("Back to Index", "index")
+</div>
+
+    <fieldset>
+        <legend>Products</legend>
+    <table>
+        <tr>
+            <th>Product ID</th>
+            <th>Edit</th>
+            <th>Detail</th>
+            <th>Delete</th>
+            <th>View</th>
+        </tr>
+        @foreach (var x in Model)
+        {
+            String path = "/images/" + @x.pName + ".jpg";
+        <tr>
+            <td>@x.pName</td>
+            <td><a href="@Url.Action("edit",new{ abc = @x.pName})">Edit</a></td>
+            <td><a href="@Url.Action("detail",new{ abc = @x.pName})">Detail</a></td>   
+            <td><a href="@Url.Action("delete",new{ abc = @x.pName})">Delete</a></td>
+               
+            <td><img src="@path"+ style="width:100px;height:100px"/></td>
+        </tr>
+        }
+    </table>
+        </fieldset>
+</div>

@@ -1,0 +1,48 @@
+﻿@model AddTemplateToMVC4.Models.product
+@{
+    ViewBag.Title = "add";
+}
+
+@using (@Html.BeginForm("add", "AdminPanel", FormMethod.Post, new { enctype= "multipart/form-data" }))
+{
+
+    <fieldset>
+        <legend>Add New Product</legend>
+
+        Upload Image: <input type="file" name="image" /> 
+        <div class="editor-label">
+            @Html.Label("Product Name/ID")
+        </div>
+        <div class="editor-field">
+            @Html.TextBoxFor(model => model.pName)           
+        </div>
+        <div class="editor-label">
+            @Html.Label("Product Type")
+
+        </div>
+        <div class="editor-field">
+            @Html.TextBoxFor(model => model.type)           
+        </div>
+
+        <div class="editor-label">
+            @Html.Label("Product Quantity")
+        </div>
+        <div class="editor-field">
+            @Html.TextBoxFor(model => model.productQuantity)           
+        </div>
+        <div class="editor-label">
+            @Html.Label("Product Unit Price")
+        </div>
+        <div class="editor-field">
+            @Html.TextBoxFor(model => model.unitPrice)           
+        </div>
+        <p>
+            <input type="submit" value="Add" />
+        </p>
+    </fieldset>
+ 
+}
+
+<div>
+    @Html.ActionLink("Back to Index", "index")
+</div>

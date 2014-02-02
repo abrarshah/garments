@@ -1,0 +1,137 @@
+﻿@model AddTemplateToMVC4.Models.customer
+@{
+    ViewBag.Title = "signup";
+}
+<script src="~/Scripts/jquery-1.7.1.js"></script>
+     <script type="text/javascript">
+         $(document).ready(function () {
+             $("#country").change(function () {
+                 var countryId = $("#country").val();
+
+                 $("#city option").remove();
+
+
+                 $.getJSON("/home/GetCities?id=" + countryId, function (data) {
+                     $("#city").append('<option>-Select City-</option>');
+                     $.each(data, function (i, item) {
+                         $("#city").append('<option name=city value=' + item.Id + '>' + item.Name + '</option>');
+
+                     });
+                 });
+
+             });
+
+         });
+</script>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+
+        $('#checking').hide();
+
+        $('#b1').click(function () {
+            $('#checking').hide();
+            var userName = $('#uname').val();
+            if (userName != null) {
+                $('#checking').show();
+                            $('#checking').text(userName);
+                $.getJSON("/Home/checkUserName?username=" + userName, function (data) {
+                    if (data) {
+                        $('#checking').text("User Name already exists in database");
+                    }
+                    else {
+                        $('#checking').text("User Name is available");
+                    }
+                });
+            }
+            else {
+                $('#checking').text("Field is Empty, Enter any Name");
+            }
+
+        });
+
+    });
+</script>
+<script src="~/Scripts/jquery.validate.js"></script>
+    @using (@Html.BeginForm("customerSave", "Home", FormMethod.Post)) {
+        @Html.ValidationSummary(true)
+        <fieldset>
+        <legend>Sign Up New Customer</legend>
+
+        <div class="editor-label">
+            @Html.Label("UserName")
+        </div>
+        <div class="editor-field">
+            @Html.TextBoxFor(m => m.uname)
+            @Html.ValidationMessageFor(m => m.uname)
+        </div>
+        <div>
+            <input type="button" value="Check" id="b1"/>
+        </div>
+        <div id="checking">checking....</div>           
+
+        <div class="editor-label">
+            @Html.Label("Full Name")
+        </div>
+        <div class="editor-field">
+            @Html.TextBoxFor(m => m.name)           
+        </div>
+        <div class="editor-label">
+            @Html.Label("Password")
+        </div>
+        <div class="editor-field">
+            @Html.PasswordFor(m => m.passwd)
+            @Html.ValidationMessageFor(m => m.passwd)           
+        </div>
+        <div class="editor-label">
+            @Html.Label("Email")
+        </div>
+        <div class="editor-field">
+            @Html.TextBoxFor(m => m.email)           
+            @Html.ValidationMessageFor(m => m.email)
+        </div>
+        <div class="editor-label">
+            @Html.Label("Cell No")
+        </div>
+        <div class="editor-field">
+            @Html.TextBoxFor(m => m.cell)           
+        </div>
+        <div class="editor-label">
+            @Html.Label("Address")
+        </div>
+        <div class="editor-field">
+            @Html.TextBoxFor(m => m.address)           
+        </div>
+
+        <div class="editor-label">
+            @Html.Label("Country")
+        </div>
+        <div class="editor-field">
+                @Html.TextBoxFor(m=>m.country)
+        </div>
+
+        <div class="editor-label">
+            @Html.Label("City")
+        </div>
+        <div class="editor-field">
+            @Html.TextBoxFor(m=>m.city)
+
+         </div>        
+        <div class="editor-label">
+            @Html.Label("Gender : ")
+            
+        </div>
+        <div class="editor-field">
+            @Html.Label("Male")        
+            @Html.RadioButton("gender","male",true)
+            @Html.Label("Female")                        
+            @Html.RadioButton("gender","female")
+        </div>
+        <p>
+            <input type="submit" name="save" value="Register" />
+        </p>
+    </fieldset>
+    }
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

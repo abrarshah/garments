@@ -1,0 +1,28 @@
+﻿@model AddTemplateToMVC4.Models.product
+@{
+    ViewBag.Title = "add";
+}
+
+@using (@Html.BeginForm("delete", "AdminPanel", FormMethod.Post)){
+    String path = "/images/" + @Model.pName + ".jpg";
+
+    <fieldset>
+        <legend>Delete Product</legend>
+
+        @Html.HiddenFor(model => model.pName)
+        <div class="editor-label">
+            @Html.Label("Image")
+        </div>
+        <p>Delete Data of this Image from Data Base</p>
+        <div class="editor-field">            
+            <img src="@path" style="width:100px;height:100px" />
+        </div>
+        <p>
+            <input type="submit" value="Delete" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to Products", "product")
+</div>

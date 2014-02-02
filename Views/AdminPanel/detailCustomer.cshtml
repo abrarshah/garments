@@ -1,0 +1,33 @@
+﻿@model List<AddTemplateToMVC4.Models.customer>
+@{
+    ViewBag.Title = "detailCustomer";
+}
+
+<fieldset>
+    <legend>Customer Information</legend>
+    <table>
+        <tr>
+            <th>Customer ID</th>
+            <th>Name</th>
+            <th>Address</th>
+            <th>Email</th>
+            <th>Cell</th>
+            <th>Gender</th>
+        </tr>
+        @foreach (var x in Model){
+        <tr>
+            <td>@x.uname</td>
+            <td>@x.name</td>
+            <td>@x.address</td>
+            <td>@x.email</td>
+            <td>@x.cell</td>
+            <td>@x.gender</td>
+
+        </tr>
+        }
+    </table>
+</fieldset>
+<div>
+    @Html.ActionLink("Back to Index", "index")
+</div>
+
