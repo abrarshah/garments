@@ -1,0 +1,119 @@
+@model AddTemplateToMVC4.Models.product
+<h3>@ViewBag.y</h3>
+<h3>@ViewBag.x</h3>
+<script src="~/Scripts/jquery-1.7.1.js"></script>
+
+     <script type="text/javascript">
+         $(document).ready(function () {
+             $('#btSearch').click(function () {
+                 var type = $("#type option:Selected").val();
+                 var min = $('#minPrice').val();
+                 var max = $('#maxPrice').val();
+                 var url = "/Home/searchProduct?abc=" + type + "&min=" + min;
+                 $("#s_result li").remove();
+                 $('#searchHead').hide();
+//                 if (min != null && max != null) {
+                     if (max > min && min != null) {
+                         $.getJSON("/Home/searchProduct?abc=" + type + "&min=" + min + "&max=" + max, function (data) {
+                             $('#searchHead').text("Search Result");
+                             $('#searchHead').show();
+                             if (data != null) {
+                                 $.each(data, function (i, item) {
+                                     var path = "/images/" + item.pName + ".jpg";
+                                     $("#s_result").append('<li><a href=/Home/product?abc=' + item.pName + ' class=preview title=Preview> <img src=' + path + '  class=imgSize> <span class=icon></span></a> <span>PKR ' + item.unitPrice + '</span> <a href="checkout.php" class="btn-cart">Add to Cart</a></li>');
+
+                                 });
+                             }
+                             else {
+                                 $('#noResult').text("No Result Found");
+                             }
+
+                         });
+                     }
+                     else {
+                                alert("Max Or Min Field Empty OR Max Price Less than Min Price");
+                     }
+
+             });
+
+         });
+</script>
+			<div id="contents">
+				<div id="adbox">
+					<div id="search">
+						<h3>Quick Search</h3>
+						<p>
+							Lorem ipsum dolor sit amet, consec tetur adipiscing elit, Praesent diam odio, commodo vittae sagittis vel,
+						</p>
+							<ul>
+								<li>
+                                    <select id="type">
+										<option>Search by Type</option>
+										<option value="0">Jacket</option>
+										<option value="1">T Shirt</option>
+										<option value="2">Women Clothes</option>
+									</select>
+								</li>
+								<li>
+                                    Min: <input type="text" id="minPrice" style="width:30px" />
+                                    Max: <input type="text" id="maxPrice" style="width:30px"/>
+								</li>
+							</ul>
+							<input type="button" value="Find My Pair!" class="button" id="btSearch">
+					</div>
+					<img src="~/images/shop-now.jpg" height="355" width="618" alt="Promo"> <a href="~/Home/index" class="button"></a> <span></span>
+				</div>
+
+                </div>
+                <div id="customsearch">
+                        <h3 id="searchHead"></h3>
+                        <h4 id="noResult"></h4>
+						<ul class="items" id="s_result">
+						</ul>
+					</div>
+				<div id="main">
+                    <h3>@ViewBag.msg</h3>
+					<div id="featured">
+						<h4><span>Featured Items</span></h4>
+						<ul class="items">
+                        @for(int i = 100; i <=101;i++){
+                            String path = "/images/men" + @i + ".jpg";
+						<li>
+							<a href="@Url.Action("product", new { abc = "men"+@i})" class="preview" title="Preview"> <img src="@path" alt="Img" class="imgSize"> <span class="icon"></span></a>  <a href="checkout.php" class="btn-cart">Add to Cart</a> 
+						</li>
+                        }
+                        @for(int i = 100;i <= 100; i++){
+                            String imgPath = "/images/jack" + @i + ".jpg";
+						<li>
+							<a href="@Url.Action("product",new{ abc = "jack"+@i})" class="preview" title="Preview"> <img src="@imgPath" alt="Img" class="imgSize"> <span class="icon"></span></a>  <a href="checkout.php" class="btn-cart">Add to Cart</a> 
+						</li>
+                        }
+                        @for(int i = 101; i <= 101;i++){
+                            String path = "/images/womens" + @i + ".jpg";
+						<li>
+							<a href="@Url.Action("product", new { abc = "womens"+@i})" class="preview" title="Preview"> <img src="@path" alt="Img" class="imgSize"> <span class="icon"></span></a>  <a href="checkout.php" class="btn-cart">Add to Cart</a> 
+						</li>
+                        }
+
+						</ul>
+					</div>
+					<div id="sale">
+						<h4><span>Sale Items</span></h4>
+						<ul class="items">
+							<li>
+								<a href="~/Home/product"> <img src="~/images/men101.jpg" alt="Img" class="imgSize">  </a>
+							</li>
+							<li>
+								<a href="~/Home/product"> <img src="~/images/men102.jpg" alt="Img" class="imgSize">  </a>
+							</li>
+							<li>
+								<a href="~/Home/product"> <img src="~/images/womens102.jpg" alt="Img" class="imgSize">  </a>
+							</li>
+							<li>
+								<a href="~/Home/product"> <img src="~/images/womens103.jpg" alt="Img" class="imgSize">  </a>
+							</li>
+						</ul>
+					</div>
+				</div>
+			
+
