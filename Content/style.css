@@ -138,6 +138,14 @@ img {
 	padding: 4px 0 2px;
 	text-align: center;
 }
+#sale h4 span {
+	background-color: #97b847;
+	display: block;
+	height: 29px;
+	width: 171px;
+	padding: 4px 0 2px;
+	text-align: center;
+}
 
 /** Adbox **/
 #adbox {

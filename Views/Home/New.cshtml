@@ -6,19 +6,19 @@
                         @for(int i = 100; i <=102;i++){
                             String path = "/images/men" + @i + ".jpg";
 						<li>
-							<a href="@Url.Action("product", new { abc = "men"+@i})" class="preview" title="Preview"> <img src="@path" alt="Img" class="imgSize"> <span class="icon"></span></a>  <a href="checkout.php" class="btn-cart">Add to Cart</a> 
+							<a href="@Url.Action("product", new { abc = "men"+@i})" class="preview" title="Preview"> <img src="@path" alt="Img" class="imgSize"> <span class="icon"></span></a>  <a href="~/Home/checkout" class="btn-cart">Add to Cart</a> 
 						</li>
                         }
                         @for(int i = 100;i <= 102; i++){
                             String imgPath = "/images/jack" + @i + ".jpg";
 						<li>
-							<a href="@Url.Action("product",new{ abc = "jack"+@i})" class="preview" title="Preview"> <img src="@imgPath" alt="Img" class="imgSize"> <span class="icon"></span></a>  <a href="checkout.php" class="btn-cart">Add to Cart</a> 
+							<a href="@Url.Action("product",new{ abc = "jack"+@i})" class="preview" title="Preview"> <img src="@imgPath" alt="Img" class="imgSize"> <span class="icon"></span></a>  <a href="~/Home/checkout" class="btn-cart">Add to Cart</a> 
 						</li>
                         }
                         @for(int i = 100; i <= 107;i++){
                             String path = "/images/womens" + @i + ".jpg";
 						<li>
-							<a href="@Url.Action("product", new { abc = "womens"+@i})" class="preview" title="Preview"> <img src="@path" alt="Img" class="imgSize"> <span class="icon"></span></a>  <a href="checkout.php" class="btn-cart">Add to Cart</a> 
+							<a href="@Url.Action("product", new { abc = "womens"+@i})" class="preview" title="Preview"> <img src="@path" alt="Img" class="imgSize"> <span class="icon"></span></a>  <a href="~/Home/checkout" class="btn-cart">Add to Cart</a> 
 						</li>
                         }
 					</ul>

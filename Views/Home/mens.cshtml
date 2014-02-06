@@ -1,4 +1,4 @@
-@model AddTemplateToMVC4.Models.imagesRange
+
 <h3>@ViewBag.x</h3>
 			<div id="contents">
 				<h4><span>Mens</span></h4>
@@ -6,14 +6,16 @@
 					<ul>
                         @for(int i = 100; i <=105;i++){
                             String path = "/images/men" + @i + ".jpg";
+                            string sc = "men" + @i;
 						<li>
-							<a href="@Url.Action("product", new { abc = "men"+@i})" class="preview" title="Preview"> <img src="@path" alt="Img" class="imgSize"> <span class="icon"></span></a>  <a href="checkout.php" class="btn-cart">Add to Cart</a>
+							<a href="@Url.Action("product", new { abc = "men"+@i})" class="preview" title="Preview"> <img src="@path" alt="Img" class="imgSize"> <span class="icon"></span></a>  <a href="/Home/checkout?pname=@sc" class="btn-cart">Add to Cart</a>
 						</li>
                         }
                         @for(int i = 100;i <= 103; i++){
                             String imgPath = "/images/jack" + @i + ".jpg";
+                            string sc = "jack" + @i;
 						<li>
-							<a href="@Url.Action("product",new{ abc = "jack"+@i})" class="preview" title="Preview"> <img src="@imgPath" alt="Img" class="imgSize"> <span class="icon"></span></a>  <a href="checkout.php" class="btn-cart">Add to Cart</a> 
+							<a href="@Url.Action("product",new{ abc = "jack"+@i})" class="preview" title="Preview"> <img src="@imgPath" alt="Img" class="imgSize"> <span class="icon"></span></a>  <a href="/Home/checkout?pname=@sc" class="btn-cart">Add to Cart</a> 
 						</li>
 
                         }
@@ -25,13 +27,13 @@
                         @for(int i = 100; i <=101;i++){
                             String path = "/images/men" + @i + ".jpg";
 						<li>
-							<a href="@Url.Action("product", new { abc = "men"+@i})" class="preview" title="Preview"> <img src="@path" alt="Img" class="imgSize"> <span class="icon"></span></a>  <a href="checkout.php" class="btn-cart">Add to Cart</a> 
+							<a href="@Url.Action("product", new { abc = "men"+@i})" class="preview" title="Preview"> <img src="@path" alt="Img" class="imgSize"> <span class="icon"></span></a>  <a href="~/Home/checkout" class="btn-cart">Add to Cart</a> 
 						</li>
                         }
                         @for(int i = 100;i <= 101; i++){
                             String imgPath = "/images/jack" + @i + ".jpg";
 						<li>
-							<a href="@Url.Action("product",new{ abc = "jack"+@i})" class="preview" title="Preview"> <img src="@imgPath" alt="Img" class="imgSize"> <span class="icon"></span></a>  <a href="checkout.php" class="btn-cart">Add to Cart</a> 
+							<a href="@Url.Action("product",new{ abc = "jack"+@i})" class="preview" title="Preview"> <img src="@imgPath" alt="Img" class="imgSize"> <span class="icon"></span></a>  <a href="~/Home/checkout" class="btn-cart">Add to Cart</a> 
 						</li>
                         }
 					</ul>

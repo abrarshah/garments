@@ -43,7 +43,7 @@
 					<div id="search">
 						<h3>Quick Search</h3>
 						<p>
-							Lorem ipsum dolor sit amet, consec tetur adipiscing elit, Praesent diam odio, commodo vittae sagittis vel,
+							You can Search with Your desire Pair, Select Type and Price Range.
 						</p>
 							<ul>
 								<li>
@@ -61,7 +61,7 @@
 							</ul>
 							<input type="button" value="Find My Pair!" class="button" id="btSearch">
 					</div>
-					<img src="~/images/shop-now.jpg" height="355" width="618" alt="Promo"> <a href="~/Home/index" class="button"></a> <span></span>
+					<img src="~/images/shop-now.jpg" height="355" width="618" alt="Promo"> <a href="~/Home/Index" class="button"></a> <span></span>
 				</div>
 
                 </div>
@@ -79,19 +79,19 @@
                         @for(int i = 100; i <=101;i++){
                             String path = "/images/men" + @i + ".jpg";
 						<li>
-							<a href="@Url.Action("product", new { abc = "men"+@i})" class="preview" title="Preview"> <img src="@path" alt="Img" class="imgSize"> <span class="icon"></span></a>  <a href="checkout.php" class="btn-cart">Add to Cart</a> 
+							<a href="@Url.Action("product", new { abc = "men"+@i})" class="preview" title="Preview"> <img src="@path" alt="Img" class="imgSize"> <span class="icon"></span></a>  <a href="~/Home/checkout" class="btn-cart">Add to Cart</a> 
 						</li>
                         }
                         @for(int i = 100;i <= 100; i++){
                             String imgPath = "/images/jack" + @i + ".jpg";
 						<li>
-							<a href="@Url.Action("product",new{ abc = "jack"+@i})" class="preview" title="Preview"> <img src="@imgPath" alt="Img" class="imgSize"> <span class="icon"></span></a>  <a href="checkout.php" class="btn-cart">Add to Cart</a> 
+							<a href="@Url.Action("product",new{ abc = "jack"+@i})" class="preview" title="Preview"> <img src="@imgPath" alt="Img" class="imgSize"> <span class="icon"></span></a>  <a href="~/Home/checkout" class="btn-cart">Add to Cart</a> 
 						</li>
                         }
                         @for(int i = 101; i <= 101;i++){
                             String path = "/images/womens" + @i + ".jpg";
 						<li>
-							<a href="@Url.Action("product", new { abc = "womens"+@i})" class="preview" title="Preview"> <img src="@path" alt="Img" class="imgSize"> <span class="icon"></span></a>  <a href="checkout.php" class="btn-cart">Add to Cart</a> 
+							<a href="@Url.Action("product", new { abc = "womens"+@i})" class="preview" title="Preview"> <img src="@path" alt="Img" class="imgSize"> <span class="icon"></span></a>  <a href="~/Home/checkout" class="btn-cart">Add to Cart</a> 
 						</li>
                         }
 
