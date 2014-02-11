@@ -5,20 +5,26 @@
 
                         @for(int i = 100; i <=102;i++){
                             String path = "/images/men" + @i + ".jpg";
+                            string sc = "men" + @i;
 						<li>
-							<a href="@Url.Action("product", new { abc = "men"+@i})" class="preview" title="Preview"> <img src="@path" alt="Img" class="imgSize"> <span class="icon"></span></a>  <a href="~/Home/checkout" class="btn-cart">Add to Cart</a> 
+                            
+							<a href="@Url.Action("product", new { abc = "men"+@i})" class="preview" title="Preview"> <img src="@path" alt="Img" class="imgSize"> <span class="icon"></span></a>  <a href="/Home/checkout?pname=@sc" class="btn-cart">Add to Cart</a>
 						</li>
                         }
                         @for(int i = 100;i <= 102; i++){
                             String imgPath = "/images/jack" + @i + ".jpg";
+                            string sc = "jack" + @i;
 						<li>
-							<a href="@Url.Action("product",new{ abc = "jack"+@i})" class="preview" title="Preview"> <img src="@imgPath" alt="Img" class="imgSize"> <span class="icon"></span></a>  <a href="~/Home/checkout" class="btn-cart">Add to Cart</a> 
+                            
+							<a href="@Url.Action("product",new{ abc = "jack"+@i})" class="preview" title="Preview"> <img src="@imgPath" alt="Img" class="imgSize"> <span class="icon"></span></a>  <a href="/Home/checkout?pname=@sc" class="btn-cart">Add to Cart</a>
 						</li>
                         }
                         @for(int i = 100; i <= 107;i++){
                             String path = "/images/womens" + @i + ".jpg";
+                            string sc = "womens" + @i;
 						<li>
-							<a href="@Url.Action("product", new { abc = "womens"+@i})" class="preview" title="Preview"> <img src="@path" alt="Img" class="imgSize"> <span class="icon"></span></a>  <a href="~/Home/checkout" class="btn-cart">Add to Cart</a> 
+                            
+							<a href="@Url.Action("product", new { abc = "womens"+@i})" class="preview" title="Preview"> <img src="@path" alt="Img" class="imgSize"> <span class="icon"></span></a>  <a href="/Home/checkout?pname=@sc" class="btn-cart">Add to Cart</a>
 						</li>
                         }
 					</ul>
