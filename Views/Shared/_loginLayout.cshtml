@@ -1,0 +1,90 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    @Styles.Render("~/Content/style.css")
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+<body>
+    <div id="background">
+		<div id="page">
+			<div id="header">
+				<div id="logo">
+					<a href="~/Home/Index"><img src="~/images/logo4.png" alt="LOGO"></a>
+				</div>
+				<div id="navigation">
+					<ul id="primary">
+						<li>
+							<a href="~/Home/Index">Home</a>
+						</li>
+						<li >
+							<a href="~/Home/New">New Arrivals</a>
+						</li>
+						<li>
+							<a href="~/Home/mens">Mens</a>
+						</li>
+						<li>
+							<a href="~/Home/womens">Womens</a>
+						</li>
+					</ul>
+					<ul id="secondary">
+						<li>
+							<a href="~/Home/checkout">Cart</a>
+						</li>
+   						<li>
+                            <p>UN : @Session["uid"]</p>
+						</li>
+
+						<li>
+							<a href="~/Home/logout" >Logout</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+
+    @RenderBody()
+
+    @Scripts.Render("~/bundles/jquery")
+    @RenderSection("scripts", required: false)
+            </div>
+        </div>
+    			<div id="footer">
+				<div class="background">
+					<div id="connect">
+						<h5>Get Social With us!</h5>
+						<ul>
+							<li>
+								<a href="http://www.facebook.com" target="_blank" class="facebook"></a>
+							</li>
+							<li>
+								<a href="http://www.twitter.com" target="_blank" class="twitter"></a>
+							</li>
+							<li>
+								<a href="http://www.google.com" target="_blank" class="linkin"></a>
+							</li>
+						</ul>
+					</div>
+					<ul class="navigation">
+						<li>
+							<h5>Mens</h5>
+							<a href="~/home/mens">Sneakers</a> <a href="~/home/mens">Boots</a> <a href="~/home/mens">Winter socks</a> <a href="~/home/mens">Lace-ups</a>
+						</li>
+						<li>
+							<h5>Womens</h5>
+							<a href="~/home/womens">Sneakers</a> <a href="~/home/womens">Boots</a> <a href="~/home/womens">Winter socks</a> <a href="~/home/womens">Lace-ups</a>
+						</li>
+						<li class="latest">
+							<h5>New Arrivals</h5>
+							<a href="~/home/New">Cheverlyn Zespax</a> <a href="~/home/New">Alta Ulterior</a> <a href="~/home/New">Mikee</a> <a href="~/home/New">Jeeroks Copy</a>
+						</li>
+					</ul>
+					<p class="footnote">
+						&copy; Copyirght &copy; 2014. <a href="~/Home/index">Shah's Garments</a> all rights reserved.
+					</p>
+				</div>
+			</div>
+
+</body>
+</html>

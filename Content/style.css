@@ -85,6 +85,11 @@ img {
 	color: #21c1c5;
 	padding-top: 5px;
 }
+#navigation ul#secondary li p {
+	background-position: right 0;
+	padding-right: 48px;
+
+}
 #navigation ul#primary {
 	float: left;
 	margin-right: 80px;
